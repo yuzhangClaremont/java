@@ -88,9 +88,9 @@ switch statement: multiple choose one
 			System.out.println("the case not cover the string");
 		}
 ```
-* \\ will print \, \' will print ' *
-* with break: only print s; without break   without break: print s and default*
-* break will jump out of loop*
+**\\ will print \, \' will print '**
+*with break: only print s; without break   without break: print s and default*
+*break will jump out of loop*
 
 static public function: method can be used in different classes?
 static funtion can only use static variables
