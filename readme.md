@@ -183,6 +183,7 @@ public static void main(String[] args){
 
 public function: method can be used in different classes?
 static funtion: can only use static variables, static function is called on class, not an object method
+static method can not use this to call another method
 ```
 	public static double parameter(double radius) {
 		return 2*PI*radius;
@@ -191,6 +192,24 @@ static funtion: can only use static variables, static function is called on clas
 	Dog d1 = new Dog(10);
 	d1.getOlder(); // object method
 	Dog.printDog();  // static function
+```
+
+indefinite length parameter function
+```
+	public static int add(int...a) {
+		int s = 0;
+		for (int i = 0; i< a.length; i++) {
+			s += a[i];
+		}
+		return s;
+	}
+	
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		System.out.println(add(1,2,3,1));
+	}
 ```
 
 ### Inheritance
@@ -244,6 +263,7 @@ public void printSomeStuff(){
 	this.printBark();
 	super.parentPrint();
 }
+```
 
 ### Interface 
 what if you want to build a array of objects from different parents, but share same funtionality like is ridable? we can build a ridable interface:
@@ -274,9 +294,28 @@ public class Horse extends Animal implements Ridable {
 }
 ```
 
-#### Java type
+### Wrapper class
+```
+Integer Num = new Integer(7);
+Integer Num_s = new Integer("7");
+int i = Num.intValue();
+short ss = Num.shortValue();
+Num.compareTo(Num_s);
+```
+### inner class
+inner class can use any out class instance variables and methods, even when they are private
+to construct new inner class
+```
+OuterClass out =  new OuterClass();
+InnerClass in = out.new InnerClass();
 
-##### Strings
+this.function();//use inner class function
+OuterClass.this.function();// use outerclass function
+```
+
+## Java type
+
+### Strings
 
 String a = "go"
 String b = " Sagehen"
@@ -289,6 +328,13 @@ System.out.println((" "+a+b+"  ").**trim**()); // remove whitespace in the head 
 int arrayLength = b.length(); //8
 System.out.println("Ak".compareTo("B")); //1
 System.out.println("go Sagehen".replace("e","E"));// go SagEhEn
+
+### Integer
+wrapper class
+change string to int
+```
+int i = Integer.parseInt("12");
+```
 
 
 
@@ -369,3 +415,57 @@ System.out.println(facebook.get("Ling")); // null, only use key to get value
 ..*only hash object, can't use int primitive type.
 ..*only use key to get value
 
+####
+Stack Lifo
+https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html
+```
+import java.util.*
+
+		Stack<String> s = new Stack<String>();
+		s.push("1");
+		s.push("2");
+		s.pop();// pop 2
+		System.out.println(s); //[1]
+```
+Queue Fifo
+Queue is a interface in java, we can't give it as a dynamic type, thus we use priorityQue to instantiate queue
+https://docs.oracle.com/javase/7/docs/api/java/util/PriorityQueue.html
+```
+		Queue<String> q = new PriorityQueue<String>();
+		q.add("1");
+		q.add("2");
+		q.remove();
+		System.out.println(q);
+```
+
+## Java library
+
+### Math
+no import needed
+```
+	System.out.println(Math.rint(2.51));// 3.0
+	System.out.println(Math.floor(2.51));//2.0
+	System.out.println(Math.abs(-2.1));
+	System.out.println(Math.random());// random number between [0, 1[
+```
+
+### Random
+```
+import java.util.Random;
+System.out.println(r.nextInt(4));// random Integer from 0 to 4
+System.out.println(r.nextInt());
+```
+
+## Error cache
+
+```
+try{   							// possible error part
+	int i = Integer.parseInt("12L");
+	System.out.println(i);
+}catch (Exception e) {  		// if error exist do this
+	e.printStackTrace();
+}finally { 						// always do finnaly no matter what
+	System.out.println("ending");
+}
+System.out.println(add(1,2,3,1));
+```
