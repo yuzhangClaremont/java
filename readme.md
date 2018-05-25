@@ -315,6 +315,11 @@ OuterClass.this.function();// use outerclass function
 
 ## Java type
 
+### casting
+```
+(double) 3/2    // print 1.5, otherwise pring 1
+```
+
 ### Strings
 
 String a = "go"
@@ -459,13 +464,25 @@ System.out.println(r.nextInt());
 ## Error cache
 
 ```
-try{   							// possible error part
-	int i = Integer.parseInt("12L");
-	System.out.println(i);
-}catch (Exception e) {  		// if error exist do this
-	e.printStackTrace();
-}finally { 						// always do finnaly no matter what
-	System.out.println("ending");
-}
+Scanner input = new Scanner(System.in);
+boolean error = true;
+do {
+	try{							// possible error part
+		System.out.println("input a num");
+		String s = input.nextLine();
+		int i = Integer.parseInt(s);
+		System.out.println(i);     // error encountered
+		error = false;
+	}catch (Exception e) {			// if error exist do this
+		e.printStackTrace();
+		System.out.println("try it again");
+	}finally {						// always do finnaly no matter what
+		System.out.println("finished");				
+	}
+}while (error == true);
+input.close();
 System.out.println(add(1,2,3,1));
 ```
+
+define and throw a constomer defined exceptions
+https://www.youtube.com/watch?v=RaLrKq-x5UE

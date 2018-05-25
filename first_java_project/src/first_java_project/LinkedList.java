@@ -71,6 +71,20 @@ public class LinkedList {
 		
 		System.out.println(mylist.toString());
 		
+		Stack<String> s = new Stack<String>();
+		s.push("1");
+		s.push("2");
+		s.pop();
+		System.out.println(s);
+		
+		Queue<String> q = new PriorityQueue<String>();
+		q.add("1");
+		q.add("2");
+		q.remove();
+		System.out.println(q);
+		
+		
+		
 
 		
 	}

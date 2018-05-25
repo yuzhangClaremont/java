@@ -1,4 +1,5 @@
 package first_java_project;
+import java.util.*;
 
 public class First_class {
 	static final double PI = 3.14;
@@ -14,6 +15,8 @@ public class First_class {
 	
 	
 	public static void main(String[] args) {
+		LinkedList list = new LinkedList();
+		
 		System.out.println("hello world");
 		
 		// java loop
